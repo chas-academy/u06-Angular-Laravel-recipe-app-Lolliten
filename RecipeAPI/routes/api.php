@@ -27,5 +27,5 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     // Get specific user details
     Route::get('getuser/{id}', [AuthController::class, 'getUser']);
     
-    // TODO: CRUD for recipe lists
+    // TODO: CRUD for recipe lists (VG)
 });
