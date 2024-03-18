@@ -1,10 +1,10 @@
+<header>
+      <div>
+      <app-login></app-login>
+      </div>
+</header>
 
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<app-home></app-home>
 
-       @for (recipe of recipes.results; track recipe) {
-            <p>{{ recipe.id }}</p>
-       }
-
-
+<!-- App.component kommer ha logo och navbar och synas på alla sidor därför får router outlet vara här -->
 <router-outlet></router-outlet>
