@@ -11,19 +11,19 @@
             <form>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" [(name)]="name" name="name">
+                <input type="text" class="form-control" id="name" name="name">
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" [(email)]="email" name="email">
+                <input type="email" class="form-control" id="email" name="email">
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" [(password)]="password" name="password">
+                <input type="password" class="form-control" id="password" name="password">
               </div>
               <div class="form-group">
                 <label for="passwordConfirmation">Confirm Password</label>
-                <input type="password" class="form-control" id="passwordConfirmation" [(passwordcontrol)]="passwordConfirmation" name="passwordConfirmation">
+                <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation">
               </div>
               <button type="submit" class="btn btn-primary" (click)="onSubmit()">Register</button>
             </form>
