@@ -10,8 +10,9 @@ import { Component } from '@angular/core';
 
   export class LoginComponent {
 
-    handleLogin() {
-        // Handle login logic here
-        console.log('Login button clicked');
-      }
+    onSubmit(event: Event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+      // Handle form submission logic here
+      console.log('Form submitted'); //to see if it works
   }
+}

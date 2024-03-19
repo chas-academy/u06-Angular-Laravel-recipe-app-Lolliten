@@ -9,5 +9,17 @@ import { Component } from '@angular/core';
   })
 
 export class RegisterComponent {
-    
+  email: string = "";
+  password: string = "";
+  name: string = "";
+  passwordConfirmation: string = "";
+  constructor(private http: HttpClient, private router: Router) { }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('name', this.name);
+    formData.append('email', this.email);
+    formData.append('password', this.password);
+  }
 }
+
