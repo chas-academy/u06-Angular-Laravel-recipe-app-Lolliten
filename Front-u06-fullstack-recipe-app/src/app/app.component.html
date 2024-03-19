@@ -2,7 +2,7 @@
       <nav>
             <div>
                   <!--Styling dosnt work-->
-                  <img src="assets/vegetables-logo.png" alt="logo" class="h-8 w-auto"> 
+                  <img src="assets/vegetables-logo.png" alt="logo" class="h-8 w-auto">
             </div>
             <div>
                   <ul>
@@ -22,6 +22,7 @@
 @for (recipe of recipes.results; track recipe) {
       <p>{{ recipe.id }}</p>
       <p>{{ recipe.title }}</p>
+}
 
 <!-- App.component kommer ha logo och navbar och synas på alla sidor därför får router outlet vara här -->
 <router-outlet></router-outlet>

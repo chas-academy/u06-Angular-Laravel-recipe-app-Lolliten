@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-register',
     standalone: true,
-    imports: [],
+    imports: [FormsModule],
     templateUrl: './register.component.html',
     styleUrl: './register.component.scss'
   })
@@ -13,7 +14,7 @@ export class RegisterComponent {
   password: string = "";
   name: string = "";
   passwordConfirmation: string = "";
-  constructor(private http: HttpClient, private router: Router) { }
+  //constructor(private http: HttpClient, private router: Router) { }
 
   onSubmit() {
     const formData = new FormData();
