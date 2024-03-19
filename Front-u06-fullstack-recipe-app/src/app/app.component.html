@@ -1,10 +1,27 @@
+<header>
+      <nav>
+            <div>
+                  <!--Styling dosnt work-->
+                  <img src="assets/vegetables-logo.png" alt="logo" class="h-8 w-auto"> 
+            </div>
+            <div>
+                  <ul>
+                        <li><a routerLink="">All Recipes</a></li>
+                        <li><a routerLink="">Favourites</a></li>
+                        <li><a routerLink="">Todays Tips</a></li>
+                        <li><a routerLink="">Profile</a></li>
+                        <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+                        <li><a routerLink="/register" routerLinkActive="active">Login</a></li>
+                  </ul>
+            </div>
+      </nav>
+</header>
 
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<app-home></app-home>
 
-       @for (recipe of recipes.results; track recipe) {
-            <p>{{ recipe.id }}</p>
-       }
+@for (recipe of recipes.results; track recipe) {
+      <p>{{ recipe.id }}</p>
+      <p>{{ recipe.title }}</p>
 
-
+<!-- App.component kommer ha logo och navbar och synas på alla sidor därför får router outlet vara här -->
 <router-outlet></router-outlet>
