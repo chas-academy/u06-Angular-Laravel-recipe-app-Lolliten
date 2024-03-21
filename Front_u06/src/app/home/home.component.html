@@ -1,0 +1,24 @@
+
+<section class="bg-gray-800 text-white py-4">
+  <div class="container mx-auto px-4">
+    <form (submit)="onSubmit($event)" class="flex flex-col sm:flex-row justify-center items-center">
+      <input type="text" name="query" placeholder="Search for food" class="bg-gray-700 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+
+      <label class="text-white mb-2 sm:mr-2 sm:mb-0">Filter by:</label>
+      <select name="filter" class="bg-gray-700 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+        <option value="all">All</option>
+        <option value="name">Mealtype</option>
+        <option value="category">Diet</option>
+        <option value="name">Allergenes</option>
+      </select>
+
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
+    </form>
+  </div>
+</section>
+<section class="results">
+
+  <app-recipeinfo [recipe]="recipe"></app-recipeinfo>
+ <!-- -->
+</section>
+
