@@ -8,7 +8,7 @@ import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
    
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent }, //redirect to empty view, now double search bar appears
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       {path: 'profile', component: ProfileComponent, canActivate: [authGuard]}

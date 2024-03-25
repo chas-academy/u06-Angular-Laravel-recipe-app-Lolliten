@@ -1,22 +1,53 @@
 
-<section class="bg-gray-800 text-white py-4">
+<section class="bg-white text-white py-4">
   <div class="container mx-auto px-4">
     <form (submit)="onSubmit($event)" class="flex flex-col sm:flex-row justify-center items-center">
-      <input type="text" name="query" placeholder="Search for food" class="bg-gray-700 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="query" placeholder="Search for food" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
 
       <label class="text-white mb-2 sm:mr-2 sm:mb-0">Filter by:</label>
-      <select name="filter" class="bg-gray-700 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
-        <option value="all">All</option>
+      <select name="filter" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+        <option value="all">No Filter</option>
         <option value="name">Mealtype</option>
+        <!--<option [value]="breakfast">Breakfast</option>
+        <option [value]="brunch">Brunch</option>
+        <option [value]="lunch">Lunch</option>
+        <option [value]="dinner">Dinner</option>
+        <option [value]="desserts">Dessert</option>
+        <option [value]="snack">Snack</option>
+        <option [value]="teatime">Teatime</option>
+        -->
         <option value="category">Diet</option>
+        <!-- <option [value]="vegetarian">Vegetarian</option>
+    <option [value]="vegan">Vegan</option>
+    <option [value]="dairy">Dairy-Free</option>
+    <option [value]="gluten">Gluten-Free</option>
+    <option [value]="treeNut">Tree Nut-Free</option>
+    <option [value]="peanut">Peanut-Free</option>
+    <option [value]="egg">Egg-Free</option>
+    -->
         <option value="name">Allergenes</option>
+
       </select>
 
       <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
     </form>
   </div>
 </section>
+
 <section class="results">
+  <!--Display this loop in home as a grid-->
+<!--@for (recipe of recipes.results; track recipe) {
+  <div class="max-w-md mx-auto">
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-4">
+      <div class="p-4">
+        <p class="mb-2 text-lg font-semibold">Recipe Details</p>
+        <hr class="mb-4">
+        <div class="mb-2"><span class="font-semibold">ID:</span> {{ recipe.id }}</div>
+        <div class="mb-2"><span class="font-semibold">Title:</span> {{ recipe.title }}</div>
+      </div>
+    </div>
+  </div>
+  }-->
 
   <app-recipeinfo [recipe]="recipe"></app-recipeinfo>
  <!-- -->

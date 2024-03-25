@@ -11,7 +11,7 @@ import { Recipeinfo } from '../Interfaces/recipeinfo';
 export class RecipeinfoComponent {
 
   @Input() recipe: Recipeinfo={
-    id: -1,
+    id: 2,
     title: "",
     nutrition: "",
     allergenes: "",
