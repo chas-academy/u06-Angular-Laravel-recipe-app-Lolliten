@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Recipeinfo } from '../recipeinfo';
+import { Recipeinfo } from '../Interfaces/recipeinfo';
 import { RecipeinfoComponent } from '../recipeinfo/recipeinfo.component';
 
 @Component({

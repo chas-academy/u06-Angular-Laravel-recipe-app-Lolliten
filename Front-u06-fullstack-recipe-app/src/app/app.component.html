@@ -10,8 +10,8 @@
                         <li><a routerLink="">Favourites</a></li>
                         <li><a routerLink="">Todays Tips</a></li>
                         <li><a routerLink="">Profile</a></li>
-                        <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
-                        <li><a routerLink="/register" routerLinkActive="active">Login</a></li>
+                        <li><a routerLink="/src/app/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a></li>
+                        <li><a routerLink="/src/app/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
                   </ul>
             </div>
       </nav>
@@ -24,5 +24,10 @@
       <p>{{ recipe.title }}</p>
 }
 
+<footer>
+      <article>
+            ~ created by: Louise Blanc 2024 ~
+      </article>
+</footer>
 <!-- App.component kommer ha logo och navbar och synas på alla sidor därför får router outlet vara här -->
 <router-outlet></router-outlet>
