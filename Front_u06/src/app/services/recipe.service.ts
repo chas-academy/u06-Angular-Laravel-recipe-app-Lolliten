@@ -18,12 +18,23 @@ export class RecipeService {
     })
   }
 
+  //
   constructor(private http: HttpClient) { 
 //This service can now make HTTP requests via `this.http`.
+
   }
 
   public getRecipe() {
     this.http.get(this.baseUrl + "?number=1&app_key=" + this.app_key, this.httpOptions)
+   
+    //.subscribe((data) => {
+      // Update the recipe object with the fetched data
+      /*this.recipe.title = data.title;
+      this.recipe.nutrition = data.nutrition;
+      this.recipe.allergenes = data.allergenes;
+      this.recipe.photo = data.photo;
+    });*/
+    
   }
 
 }

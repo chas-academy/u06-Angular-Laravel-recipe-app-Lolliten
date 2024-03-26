@@ -36,19 +36,24 @@
 
 <section class="results">
   <!--Display this loop in home as a grid-->
+
 <!--@for (recipe of recipes.results; track recipe) {
-  <div class="max-w-md mx-auto">
-    <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-4">
-      <div class="p-4">
-        <p class="mb-2 text-lg font-semibold">Recipe Details</p>
-        <hr class="mb-4">
-        <div class="mb-2"><span class="font-semibold">ID:</span> {{ recipe.id }}</div>
-        <div class="mb-2"><span class="font-semibold">Title:</span> {{ recipe.title }}</div>
+ 
+  //The info I wanan display in the cards, and when you press a card redirect to home 
+ //where the whole recipe and description is displayed
+        
+        <div>ID: {{ recipe.id }}</div>
+        <div>Title: {{ recipe.title }} </div>
       </div>
     </div>
   </div>
   }-->
 
+  <!--  the "home.component.html" you will call the "recipeinfo" component with 
+    the selector "app-recipeinfo" like this "<app-recipeinfo></app-recipeinfo>" 
+    and in these calls you will send in the recipe data like this "<app-recipeinfo [recipe]="recipe"></app-recipeinfo>".  
+    This data is then stored in the "@Input() recipe" variable in the "recipeinfo" component and you can then on the 
+    "recipeinfo.component.html" file display the recipe data using id, title, nutrition, allergenes and photo -->
   <app-recipeinfo [recipe]="recipe"></app-recipeinfo>
  <!-- -->
 </section>
