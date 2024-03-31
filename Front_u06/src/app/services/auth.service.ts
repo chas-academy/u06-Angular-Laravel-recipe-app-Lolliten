@@ -5,9 +5,9 @@ import { User } from '../Interfaces/user';
 import { LoginDetails } from '../Interfaces/logindetails';
 import { Registerdetails } from '../Interfaces/registerdetails';
 
-@Injectable({
+/*@Injectable({
   providedIn: 'root'
-})
+})*/
 
 interface ResultData {
   token: string
