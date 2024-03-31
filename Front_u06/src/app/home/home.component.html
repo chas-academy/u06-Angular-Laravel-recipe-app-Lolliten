@@ -1,33 +1,44 @@
 
 <section class="bg-white text-white py-4">
   <div class="container mx-auto px-4">
-    <form (submit)="onSubmit($event)" class="flex flex-col sm:flex-row justify-center items-center">
+    <form (submit)="onSubmit()" class="flex flex-col sm:flex-row justify-center items-center">
       <input type="text" name="query" placeholder="Search for food" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
 
       <label class="text-white mb-2 sm:mr-2 sm:mb-0">Filter by:</label>
-      <select name="filter" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
-        <option value="all">No Filter</option>
-        <option value="name">Mealtype</option>
-        <!--<option [value]="breakfast">Breakfast</option>
-        <option [value]="brunch">Brunch</option>
-        <option [value]="lunch">Lunch</option>
-        <option [value]="dinner">Dinner</option>
-        <option [value]="desserts">Dessert</option>
-        <option [value]="snack">Snack</option>
-        <option [value]="teatime">Teatime</option>
-        -->
+      <select name="mealtype" placeholder="Mealtype" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+    
+        <option value="breakfast">Breakfast</option>
+        <option value="brunch">Brunch</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="desserts">Dessert</option>
+        <option value="snack">Snack</option>
+        <option value="teatime">Teatime</option>
+        </select>
+        <select name="diet" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
         <option value="category">Diet</option>
-        <!-- <option [value]="vegetarian">Vegetarian</option>
-    <option [value]="vegan">Vegan</option>
-    <option [value]="dairy">Dairy-Free</option>
-    <option [value]="gluten">Gluten-Free</option>
-    <option [value]="treeNut">Tree Nut-Free</option>
-    <option [value]="peanut">Peanut-Free</option>
-    <option [value]="egg">Egg-Free</option>
-    -->
-        <option value="name">Allergenes</option>
-
-      </select>
+        <option value="vegetarian">Vegetarin</option>
+        <option value="vegan">Lacto-Vegetarian</option>
+        <option value="dairy">Vegan</option>
+        <option value="gluten">Paleo</option>
+        <option value="treeNut">Ketogenic</option>
+        <option value="peanut">Gluten-Free</option>
+        </select>
+        <select name="Intolerances" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+        <option value="name">Intolerances</option>
+        <option value="category">Dairy</option>
+        <option value="vegetarian">Egg</option>
+        <option value="vegan">Gluten</option>
+        <option value="dairy">Grain</option>
+        <option value="egg">Wheat</option>
+        <option value="gluten">Peanut</option>
+        <option value="treeNut">Tree Nut</option>
+        <option value="peanut">Seafood</option>
+        <option value="egg">Shellfish</option>
+        <option value="egg">Sulfite</option>
+        <option value="egg">Soy</option>
+        
+        </select>
 
       <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Search</button>
     </form>
