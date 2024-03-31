@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Registerdetails } from '../Interfaces/registerdetails';
 
 @Component({
     selector: 'app-register',
@@ -16,11 +17,17 @@ export class RegisterComponent {
   passwordConfirmation: string = "";
   //constructor(private http: HttpClient, private router: Router) { }
 
+  registerdetails: Registerdetails ={
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirmation: ""
+  }
+
   onSubmit() {
-    const formData = new FormData();
-    formData.append('name', this.name);
-    formData.append('email', this.email);
-    formData.append('password', this.password);
+    //Add what happens on submit, use ngModel too
   }
 }
+
+//HTTP request for ngModel
 

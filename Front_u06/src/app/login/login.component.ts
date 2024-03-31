@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { LoginDetails } from '../Interfaces/logindetails';
 import { User } from '../Interfaces/user';
 import { Observable } from 'rxjs';
@@ -28,9 +28,10 @@ import { AsyncPipe } from '@angular/common';
       }
 
       this.user = {
-        id:-1,
-        name:"",
-        email:""
+        id: -1,
+        name: "",
+        email: "",
+        created_at: ""
       }
 
       this.loggedIn$ = this.auth.loggedIn$;
@@ -43,15 +44,15 @@ import { AsyncPipe } from '@angular/common';
       this.auth.logOut();
     }
   
-    getUser(){
+    /*getUser(){
       this.auth.getUser2().subscribe(res => {
         console.log(res[0]);
         this.user = res[0];
       })
-    }
+    }*/
 
-    onSubmit(event: Event) {
-      event.preventDefault(); // Prevent the default form submission behavior
+    onSubmit() {
+  
       // Handle form submission logic here
       console.log('Form submitted'); //to see if it works
   }

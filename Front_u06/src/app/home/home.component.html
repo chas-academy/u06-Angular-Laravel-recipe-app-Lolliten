@@ -2,11 +2,10 @@
 <section class="bg-white text-white py-4">
   <div class="container mx-auto px-4">
     <form (submit)="onSubmit()" class="flex flex-col sm:flex-row justify-center items-center">
-      <input type="text" name="query" placeholder="Search for food" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+      <input type="text" name="query" [(ngModel)]="filter.query" placeholder="Search for food" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
 
       <label class="text-white mb-2 sm:mr-2 sm:mb-0">Filter by:</label>
-      <select name="mealtype" placeholder="Mealtype" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
-    
+      <select name="mealtype" [(ngModel)]="filter.mealtype" placeholder="Mealtype" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
         <option value="breakfast">Breakfast</option>
         <option value="brunch">Brunch</option>
         <option value="lunch">Lunch</option>
@@ -15,7 +14,7 @@
         <option value="snack">Snack</option>
         <option value="teatime">Teatime</option>
         </select>
-        <select name="diet" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+        <select name="diet" [(ngModel)]="filter.diet" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
         <option value="category">Diet</option>
         <option value="vegetarian">Vegetarin</option>
         <option value="vegan">Lacto-Vegetarian</option>
@@ -24,7 +23,7 @@
         <option value="treeNut">Ketogenic</option>
         <option value="peanut">Gluten-Free</option>
         </select>
-        <select name="Intolerances" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+        <select name="Intolerances" [(ngModel)]="filter.intolerances" class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
         <option value="name">Intolerances</option>
         <option value="category">Dairy</option>
         <option value="vegetarian">Egg</option>
