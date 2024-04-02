@@ -54,6 +54,12 @@ export class AuthService {
       })
   }
 
+  //handle the subscribe in the app, 
+  /*
+  this.http.get<any/datatype>
+  .subscribe(result => {
+    console.log(result);
+  */
   //Is this right?
   register(registerdetails: RegisterDetails){
     this.http.post<ResultData>(this.baseUrl+'register', registerdetails, this.httpOptions).pipe(

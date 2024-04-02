@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Filter } from '../Interfaces/filter';
 
 
 @Injectable({
@@ -23,7 +24,32 @@ export class RecipeService {
   }
 
   public getRecipe() {
-    this.http.get(this.baseUrl + "?number=1&app_key=" + this.app_key, this.httpOptions)
+    this.http.get(this.baseUrl + "?number=1&apiKey=" + this.app_key, this.httpOptions)
+  }
+
+  public getRecipes(filter: Filter) {
+console.log(filter)
+let url = this.baseUrl + "?apiKey=" + this.app_key + "&number=5";
+if(filter.query) {
+  console.log("query is working")
+  url += "&query=" + filter.query;
+}
+if(filter.mealtype) {
+  console.log("mealtype is working")
+  url += "&type=" + filter.mealtype;
+}
+if(filter.diet) {
+  console.log("diet is working")
+  url += "&diet=" + filter.diet;
+}
+if(filter.intolerances) {
+  console.log("intolerances is working")
+  url += "&intolerances=" + filter.intolerances;
+}
+url = encodeURI(url);
+
+//this.http.get()
+
   }
 
 }
