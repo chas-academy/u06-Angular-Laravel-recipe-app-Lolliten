@@ -5,17 +5,22 @@ import { User } from '../Interfaces/user';
 import { LoginDetails } from '../Interfaces/logindetails';
 import { Registerdetails } from '../Interfaces/registerdetails';
 
-/*@Injectable({
-  providedIn: 'root'
-})*/
-
+//TAKE THIS AWAY??
 interface ResultData {
   token: string
 }
 
+//Do I need this? Login dont have the interface?
 interface RegisterDetails {
-
+  name: "",
+    email: "",
+    password: "",
+    passwordConfirmation: ""
 }
+
+@Injectable({
+  providedIn: 'root'
+})
 
 export class AuthService {
 
@@ -39,6 +44,7 @@ export class AuthService {
     this.loggedIn.next(loginState);
   }
 
+  //where is resultdata? Do i need to create IF?
   loginUser(loginDetails: LoginDetails){
     this.http.post<ResultData>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result => {
@@ -46,6 +52,14 @@ export class AuthService {
         this.updateLoginState(true);
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + result.token);
       })
+  }
+
+  //Is this right?
+  register(registerdetails: RegisterDetails){
+    this.http.post<ResultData>(this.baseUrl+'register', registerdetails, this.httpOptions).pipe(
+      catchError(this.handleError)).subscribe // ?? 
+      //How does the rest look like? 
+     //
   }
 
   logOut(){
