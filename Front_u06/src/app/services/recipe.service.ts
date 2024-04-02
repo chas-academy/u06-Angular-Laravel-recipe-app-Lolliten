@@ -24,7 +24,7 @@ export class RecipeService {
 //This service can now make HTTP requests via `this.http`.
   }
 
-  public getRecipe() {
+  public getRecipe() { //(query: string, mealtype: string, diet: string, allergenes: string): Observable<any> {...
     this.http.get(this.baseUrl + "?number=1&apiKey=" + this.app_key, this.httpOptions)
   }
 
@@ -54,5 +54,15 @@ url = encodeURI(url);
   }
 
 }
+
+/*
+// Sök efter ID för visa enskilt recept ??
+
+getRecipesInfo(id: string): Observable<any> {
+  let url = `${this.baseUrl2}/${id}/information?apiKey=${this.app_key}`
+  return this.http.get<any>(url, this.httpOptions);
+  
+}
+*/
 
 
