@@ -1,0 +1,26 @@
+<div class="container mt-5 flex justify-center items-center h-screen">
+  <div class="max-w-md">
+    <div class="bg-white shadow-md rounded-md p-6">
+      <h4 class="text-xl font-semibold mb-4">Register</h4>
+      <form submit="onSubmit()">
+        <div class="mb-4">
+          <label [(ngModel)]="registerdetails.name" for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+          <input type="text" id="name" name="name" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+        <div class="mb-4">
+          <label [(ngModel)]="registerdetails.email" for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+          <input type="email" id="email" name="email" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+        <div class="mb-4">
+          <label [(ngModel)]="registerdetails.password" for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+          <input type="password" id="password" name="password" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+        <div class="mb-4">
+          <label [(ngModel)]="registerdetails.passwordConfirmation" for="passwordConfirmation" class="block text-sm font-medium text-gray-700">Confirm Password:</label>
+          <input type="password" id="passwordConfirmation" name="passwordConfirmation" class="mt-1 p-2 block w-full rounded-md bg-gray-100 border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
