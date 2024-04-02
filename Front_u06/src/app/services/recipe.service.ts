@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Filter } from '../Interfaces/filter';
-
+import { Observable } from 'rxjs'; //??
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RecipeService {
 
   private baseUrl = "https://api.spoonacular.com/recipes/complexSearch"
@@ -15,7 +16,7 @@ export class RecipeService {
   private httpOptions = {
     headers: new HttpHeaders({
       'accept': 'application/json',
-      'Accept-Language': 'en'
+      //'Accept-Language': 'en' //Ta bort??
     })
   }
 
