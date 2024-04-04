@@ -1,3 +1,78 @@
 
 
+<section class="bg-white text-white py-4">
+    <div class="container mx-auto px-4">
+      <form
+        class="flex flex-col sm:flex-row justify-center items-center"
+      >
+        <input
+          type="text"
+          name="query"
+          [(ngModel)]="filter.query"
+          placeholder="Search for food"
+          class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300"/>
+  
+        <div class="flex flex-col sm:flex-row">
+          <select
+            name="mealtype"
+            [(ngModel)]="filter.mealtype"
+            class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+            <option value="">Mealtype</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="brunch">Brunch</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="dessert">Dessert</option>
+            <option value="snack">Snack</option>
+            <option value="appetizer">Appetizer</option>
+          </select>
+          <select
+            name="diet"
+            [(ngModel)]="filter.diet"
+            class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+            <option value="">Diet</option>
+            <option value="vegetarian">Vegetarin</option>
+            <option value="lacto-vegetarian">Lacto-Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="paleo">Paleo</option>
+            <option value="ketogenic">Ketogenic</option>
+            <option value="gluten-free">Gluten-Free</option>
+          </select>
+          <select
+            name="Intolerances"
+            [(ngModel)]="filter.intolerances"
+            class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+            <option value="">Intolerances</option>
+            <option value="dairy">Dairy</option>
+            <option value="egg">Egg</option>
+            <option value="gluten">Gluten</option>
+            <option value="grain">Grain</option>
+            <option value="wheat">Wheat</option>
+            <option value="peanut">Peanut</option>
+            <option value="tree nut">Tree Nut</option>
+            <option value="seafood">Seafood</option>
+            <option value="egg">Shellfish</option>
+            <option value="sulfite">Sulfite</option>
+            <option value="soy">Soy</option>
+          </select>
+        </div>
+        <button
+          type="button" (click)="onSubmit()"
+          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+          Search
+        </button>
+      </form>
+    </div>
+  </section>
+  
+  <!--<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto my-4">
+  @for (recipetest of recipes; track recipetest) {
+    <app-recipeinfo [recipe]="recipetest"></app-recipeinfo>
+  }</div>-->
 
+  <div class="items-center p-12">
+  <div class="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"> 
+    @for (recipetest of recipes; track recipetest) { 
+        <app-recipeinfo [recipe]="recipetest" class="padding: 10px rounded-lg"></app-recipeinfo> 
+        } </div>
+        </div>

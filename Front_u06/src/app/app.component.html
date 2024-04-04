@@ -6,102 +6,52 @@
   <div class="container mx-auto flex justify-between items-center">
     <ul class="flex items-center space-x-4 py-2">
       <img src="/assets/vegetables-logo.png" alt="Logo" class="w-12 h-auto" />
-      <!--<li>
-        <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out">Home</a>
-      </li>
       <li>
-        <a routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out">Profile</a>
-      </li>-->
-      <li>
-        <a
-          routerLink="/register"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out"
-          >Register</a
-        >
+        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out">Home</a>
       </li>
-      <li>
-        <a
-          routerLink="/login"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out"
-          >Log In/Out</a
-        >
-      </li>
+
+      <!--
+      @if((loggedIn$ | async)?.loginState ){
+      logout button
+      } @else {
+      login button
+      signup button
+      } -->
+
+      @if((loggedIn$ | async)){
+        <li>
+          <a
+            (click)="logout()"
+            class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out"
+            >Log Out</a
+          >
+        </li>
+      }@else {
+        <li>
+          <a
+            routerLink="/register"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out"
+            >Register</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ease-in-out"
+            >Log In</a
+          >
+        </li>
+      }
     </ul>
   </div>
 </nav>
 
-<section class="bg-white text-white py-4">
-  <div class="container mx-auto px-4">
-    <form
-      (submit)="onSubmit()"
-      class="flex flex-col sm:flex-row justify-center items-center"
-    >
-      <input
-        type="text"
-        name="query"
-        [(ngModel)]="filter.query"
-        placeholder="Search for food"
-        class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300"/>
-
-      <div class="flex flex-col sm:flex-row">
-        <select
-          name="mealtype"
-          [(ngModel)]="filter.mealtype"
-          class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
-          <option value="">Mealtype</option>
-          <option value="breakfast">Breakfast</option>
-          <option value="brunch">Brunch</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="dessert">Dessert</option>
-          <option value="snack">Snack</option>
-          <option value="appetizer">Appetizer</option>
-        </select>
-        <select
-          name="diet"
-          [(ngModel)]="filter.diet"
-          class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
-          <option value="">Diet</option>
-          <option value="vegetarian">Vegetarin</option>
-          <option value="lacto-vegetarian">Lacto-Vegetarian</option>
-          <option value="vegan">Vegan</option>
-          <option value="paleo">Paleo</option>
-          <option value="ketogenic">Ketogenic</option>
-          <option value="gluten-free">Gluten-Free</option>
-        </select>
-        <select
-          name="Intolerances"
-          [(ngModel)]="filter.intolerances"
-          class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
-          <option value="">Intolerances</option>
-          <option value="dairy">Dairy</option>
-          <option value="egg">Egg</option>
-          <option value="gluten">Gluten</option>
-          <option value="grain">Grain</option>
-          <option value="wheat">Wheat</option>
-          <option value="peanut">Peanut</option>
-          <option value="tree nut">Tree Nut</option>
-          <option value="seafood">Seafood</option>
-          <option value="egg">Shellfish</option>
-          <option value="sulfite">Sulfite</option>
-          <option value="soy">Soy</option>
-        </select>
-      </div>
-      <button
-        type="submit"
-        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
-        Search
-      </button>
-    </form>
-  </div>
-</section>
 
 
-<app-recipeinfo [recipe]="recipe"></app-recipeinfo>
 
 <!--<section class="results">-->
 
