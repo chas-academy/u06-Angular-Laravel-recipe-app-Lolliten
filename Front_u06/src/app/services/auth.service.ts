@@ -36,7 +36,7 @@ export class AuthService {
     })
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   getLoginStatus(){
     return this.loggedIn.value;
@@ -53,7 +53,7 @@ export class AuthService {
         
         this.updateLoginState(true);
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + result.token);
-        //this.router.navigate(['']) Empty then navigates to default app comp??
+        this.router.navigate(['/'])
       })
   }
 
@@ -63,34 +63,27 @@ export class AuthService {
     ).subscribe(res => {
       console.log(res);
       console.log(res.token);
-      this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); // + result.token //should this line be here?
+      this.updateLoginState(true)
+      this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + res.token); // + result.token //should this line be here?
       
-      //this.router.navigate(['/profile']); ??
+      this.router.navigate(['/']);
     });
   }
 
-  //First try reg, Is this right?
-  /*register(registerdetails: RegisterDetails){
-    this.http.post<RegisterDetails>(this.baseUrl + 'register', registerdetails, this.httpOptions).pipe(
-      catchError(this.handleError)).subscribe // ?? 
-      //How does the rest look like? 
-      /*(??? => {
-        console.log(???)
-      });
-
-  }*/
-
   logOut(){
-    this.http.post<ResultData>(this.baseUrl+'logout', {}, this.httpOptions).pipe(
+    this.http.post<any>(this.baseUrl+'logout', {}, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result => {
         console.log(result);
         this.updateLoginState(false);
-        this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); //+ token ??
+        this.httpOptions.headers = this.httpOptions.headers.delete('Authorization'); //
       })
   }
+  //connect button to log out 
+  //create new button for logout 
+  //manipulate login to be logout when logged in
 
   getUser2(): Observable<User[]> {
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); //+ token ??
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); // + token??
     return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions);
   }
 

@@ -25,7 +25,7 @@ export class RegisterComponent {
     name: "",
     email: "",
     password: "",
-    passwordConfirmation: ""
+    password_confirmation: ""
   }
 
    constructor(private auth: AuthService) {
@@ -33,7 +33,7 @@ export class RegisterComponent {
       name:"",
       email:"", 
       password:"", 
-      passwordConfirmation:"",
+      password_confirmation:"",
       }
     }
 
@@ -42,6 +42,9 @@ export class RegisterComponent {
     }*/
 
   onSubmit() {
+
+    console.log(this.registerdetails)
+    this.auth.register(this.registerdetails)
     //Add what happens on submit, use ngModel too
   }
 }

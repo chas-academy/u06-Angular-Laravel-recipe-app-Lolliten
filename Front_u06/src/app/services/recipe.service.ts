@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Filter } from '../Interfaces/filter';
-import { Observable } from 'rxjs'; //??
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class RecipeService {
   private httpOptions = {
     headers: new HttpHeaders({
       'accept': 'application/json',
-      //'Accept-Language': 'en' //Ta bort??
+      'Accept-Language': 'en'
     })
   }
 
@@ -27,21 +27,28 @@ export class RecipeService {
   //getrecipebyID
   public getRecipe() { //(query: string, mealtype: string, diet: string, allergenes: string): Observable<any> {...
     this.http.get(this.baseUrl + "?number=1&apiKey=" + this.app_key, this.httpOptions)
-  }
+  } //Ta in id från valt recept och skicka ny förfrågan till aPI och returna valt recpt och display på app component
+  // Kan bli problem displaya på app comp,
+/*
+getRecipesInfo(id: string): Observable<any> {
+  let url = `${this.baseUrl2}/${id}/information?apiKey=${this.app_key}`
+  return this.http.get<any>(url, this.httpOptions);
+}
+*/
 
   public getRecipes(filter: Filter): Observable<any> {
 console.log(filter)
 let url = this.baseUrl + "?apiKey=" + this.app_key + "&number=5";
 if(filter.query) {
-  console.log("query is working")
+  console.log("query is working") // ta bort console log
   url += "&query=" + filter.query;
 }
 if(filter.mealtype) {
-  console.log("mealtype is working")
+  console.log("mealtype is working") // ta bort console log
   url += "&type=" + filter.mealtype;
 }
 if(filter.diet) {
-  console.log("diet is working")
+  console.log("diet is working") // ta bort console log
   url += "&diet=" + filter.diet;
 }
 if(filter.intolerances) {
@@ -56,14 +63,5 @@ return this.http.get(url, this.httpOptions)
 
 }
 
-/*
-// Sök efter ID för visa enskilt recept ??
-
-getRecipesInfo(id: string): Observable<any> {
-  let url = `${this.baseUrl2}/${id}/information?apiKey=${this.app_key}`
-  return this.http.get<any>(url, this.httpOptions);
-  
-}
-*/
 
 

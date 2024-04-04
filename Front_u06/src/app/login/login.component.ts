@@ -4,11 +4,12 @@ import { LoginDetails } from '../Interfaces/logindetails';
 import { User } from '../Interfaces/user';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [AsyncPipe],
+    imports: [AsyncPipe, FormsModule],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'
   })
@@ -23,8 +24,8 @@ import { AsyncPipe } from '@angular/common';
 
     constructor(private auth: AuthService) { 
       this.loginDetails = {
-        email: "seb@seb.seb",
-        password: "sebsebseb"
+        email: "",
+        password: ""
       }
 
       this.user = {
@@ -55,6 +56,7 @@ import { AsyncPipe } from '@angular/common';
     onSubmit() {
   
       // Handle form submission logic here
-      console.log('Form submitted'); //to see if it works
+      console.log(this.loginDetails) //to see if it works
+      this.auth.loginUser(this.loginDetails)
   }
 }

@@ -2,5 +2,5 @@ export interface Registerdetails {
     name: string,
     email: string,
     password: string,
-    passwordConfirmation: string
+    password_confirmation: string
 }
