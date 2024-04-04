@@ -25,16 +25,15 @@ export class RecipeService {
   }
 
   //getrecipebyID
-  public getRecipe() { //(query: string, mealtype: string, diet: string, allergenes: string): Observable<any> {...
+  public getRecipe() { 
     this.http.get(this.baseUrl + "?number=1&apiKey=" + this.app_key, this.httpOptions)
   } //Ta in id från valt recept och skicka ny förfrågan till aPI och returna valt recpt och display på app component
-  // Kan bli problem displaya på app comp,
+  // Kan bli problem displaya på app comp??
 /*
 getRecipesInfo(id: string): Observable<any> {
   let url = `${this.baseUrl2}/${id}/information?apiKey=${this.app_key}`
   return this.http.get<any>(url, this.httpOptions);
-}
-*/
+} */
 
   public getRecipes(filter: Filter): Observable<any> {
 console.log(filter)
@@ -62,6 +61,10 @@ return this.http.get(url, this.httpOptions)
   }
 
 }
+
+/*Inside a tag around that redirects /recipe/id (id is a url parameter)
+in that route display more info, new comp that make a api request to get more info and display that
+in the recipe service make a request for the recipe by id */
 
 
 

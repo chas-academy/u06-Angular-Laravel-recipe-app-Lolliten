@@ -1,26 +1,17 @@
 <div class="flex justify-center">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
-      <div class="p-4">
-        <p class="mb-2 text-lg font-semibold">Recipe</p>
+    <a routerLink="'/specificrecipe', specificrecipe.id"><div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+      <div class="p-4"> <!--Inside a tag around that redirects /recipe/id (id is a url parameter)
+        in that route display more info, new comp that make a api request to get more info and display that
+      in the recipe service make a request for the recipe by id -->
+        
         <hr class="mb-4">
-        <p class="mb-2"><span class="font-semibold">ID:</span> {{ recipe.id }}</p>
-        <p class="mb-2"><span class="font-semibold">Title:</span> {{ recipe.title }}</p>
-        <!--<p class="mb-2"><span class="font-semibold">Nutrition:</span> {{ recipe.nutrition }}</p>-->
+        <!--<p class="mb-2"><span class="font-semibold">ID:</span> {{ recipe.id }}</p>-->
+        <p class="mb-2 font-semibold">{{ recipe.title }}</p>
+        <!--<p class="mb-2"> {{ recipe.nutrition }}</p>-->
         <!--<p class="mb-2"><span class="font-semibold">Allergens:</span> {{ recipe.allergenes }}</p>-->
-        <p class="mb-2"><span class="font-semibold">Photo:</span> {{ recipe.image }}</p>
+        <img src="{{ recipe.image }}" alt="image of the recipe">
       </div>
-    </div>
+    </div></a>
   </div>
 </div>
-
-<!--@for loop instead ??-->
-
-<!--
-@for (recipe of recipe.results; track recipe) {
-  <img src="{{ recipe.image }}"
-                <h1>{{ recipe.title }}</h1>
-                <p>{{ recipe.nutrition.nutrients }}</p>
-                    }
-
--->

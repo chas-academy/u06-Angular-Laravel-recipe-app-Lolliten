@@ -11,11 +11,13 @@ import { Filter } from './Interfaces/filter';
 import { RecipeService } from './services/recipe.service';
 import { Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
+import { AsyncPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RegisterComponent, LoginComponent, RouterLinkActive, RouterLink, FormsModule, RecipeinfoComponent],
+  imports: [AsyncPipe, RouterOutlet, RegisterComponent, LoginComponent, RouterLinkActive, RouterLink, FormsModule, RecipeinfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -44,27 +46,27 @@ export class AppComponent {
 
 
   constructor(private recipeService: RecipeService, private auth: AuthService) {
+    
     this.loggedIn$ = this.auth.loggedIn$;
    }
 
-  onSubmit() {
-    
+   onSubmit() {
     console.log(this.filter);
-    this.recipeService.getRecipes(this.filter).subscribe(data =>{
-      console.log(data)
-      let datarecipes = data.results.map((recipe: { id: any; title: any; image: any; imageType: any; nutrition: any; }) => {
-        return {
-        id: recipe.id,
-        title: recipe.title,
-        image: recipe.image,
-        imageType: recipe.imageType,
-        nutrition: recipe.nutrition,
-        }
-      })
-      this.recipes = datarecipes;
+     this.recipeService.getRecipes(this.filter).subscribe(data =>{
+     console.log(data)
+     let datarecipes = data.results.map((recipe: { id: any; title: any; image: any; imageType: any; nutrition: any; }) => {
+       return {
+       id: recipe.id,
+       title: recipe.title,
+       image: recipe.image,
+       imageType: recipe.imageType,
+       nutrition: recipe.nutrition,
+       }
+     })
+     this.recipes = datarecipes;
 
-    })  
-  }
+   })  
+ }
 
     logout() {
       this.auth.logOut();

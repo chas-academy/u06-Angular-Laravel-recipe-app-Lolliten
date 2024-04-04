@@ -1,4 +1,4 @@
-/*import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Recipeinfo } from '../Interfaces/recipeinfo';
 import { RecipeinfoComponent } from '../recipeinfo/recipeinfo.component';
 import { RecipeService } from '../services/recipe.service';
@@ -16,15 +16,50 @@ import { FormsModule } from '@angular/forms';
 export class HomeComponent {
 
   
+  filter: Filter ={
+    query: "",
+    mealtype: "",
+    diet: "",
+    intolerances: ""
+  }
+
+  recipes: Recipeinfo[]; 
 
   //Delete this?
-  /*recipes?: Recipe;
+  //recipes?: Recipe;
 
   searchterm = "chicken";
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) { 
+    this.recipes = [
+      {
+        id: -1,
+        title: "",
+        image: "",
+        //nutrition: 
+      }
+    ]
+  }
 
-  searchRecipe() {
+  onSubmit() {
+    console.log(this.filter);
+     this.recipeService.getRecipes(this.filter).subscribe(data =>{
+     console.log(data)
+     let datarecipes = data.results.map((recipe: { id: any; title: any; image: any; imageType: any; nutrition: any; }) => {
+       return {
+       id: recipe.id,
+       title: recipe.title,
+       image: recipe.image,
+       imageType: recipe.imageType,
+       nutrition: recipe.nutrition,
+       }
+     })
+     this.recipes = datarecipes;
+
+   })  
+ }
+
+  /*searchRecipe() {
     this.recipeService.getRecipe(this.searchterm,).subscribe(result) =>
     console.log(result);
     let recipe: Recipe[];
@@ -38,8 +73,4 @@ export class HomeComponent {
   }
     }]*/
   
-
-
- 
-
-
+  }
