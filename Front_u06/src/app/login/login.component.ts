@@ -39,6 +39,7 @@ import { AsyncPipe } from '@angular/common';
   
     login(){
       this.auth.loginUser(this.loginDetails);
+      //Test, take away when working
     }
     logout(){
       this.auth.logOut();

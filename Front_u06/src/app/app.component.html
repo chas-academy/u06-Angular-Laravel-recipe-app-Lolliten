@@ -92,7 +92,7 @@
         </select>
       </div>
       <button
-        type="submit"
+        type="button"
         class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
         Search
       </button>
@@ -101,7 +101,10 @@
 </section>
 
 
-<app-recipeinfo [recipe]="recipe"></app-recipeinfo>
+@for (recipetest of recipes.results; track recipe) {
+  <app-recipeinfo [recipe]="recipetest"></app-recipeinfo>
+}
+
 
 <!--<section class="results">-->
 

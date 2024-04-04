@@ -13,9 +13,9 @@ export class RecipeinfoComponent {
   @Input() recipe: Recipeinfo={
     id: 2,
     title: "",
-    nutrition: "",
-    allergenes: "",
-    photo: ""
+   // nutrition: "",
+   //allergenes: "",
+    image: ""
   };
 
   /*

@@ -24,11 +24,12 @@ export class RecipeService {
 //This service can now make HTTP requests via `this.http`.
   }
 
+  //getrecipebyID
   public getRecipe() { //(query: string, mealtype: string, diet: string, allergenes: string): Observable<any> {...
     this.http.get(this.baseUrl + "?number=1&apiKey=" + this.app_key, this.httpOptions)
   }
 
-  public getRecipes(filter: Filter) {
+  public getRecipes(filter: Filter): Observable<any> {
 console.log(filter)
 let url = this.baseUrl + "?apiKey=" + this.app_key + "&number=5";
 if(filter.query) {
@@ -49,8 +50,8 @@ if(filter.intolerances) {
 }
 url = encodeURI(url);
 
-//this.http.get()
-
+return this.http.get(url, this.httpOptions)
+  
   }
 
 }

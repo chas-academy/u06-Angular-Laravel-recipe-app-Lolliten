@@ -50,9 +50,10 @@ export class AuthService {
     this.http.post<any>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result => {
         console.log(result);
+        
         this.updateLoginState(true);
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + result.token);
-        //this.router.navigate([''])
+        //this.router.navigate(['']) Empty then navigates to default app comp??
       })
   }
 
@@ -63,8 +64,8 @@ export class AuthService {
       console.log(res);
       console.log(res.token);
       this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); // + result.token //should this line be here?
-      //localStorage.setItem("token", res.token);
-      //this.router.navigate(['/login']);
+      
+      //this.router.navigate(['/profile']); ??
     });
   }
 
