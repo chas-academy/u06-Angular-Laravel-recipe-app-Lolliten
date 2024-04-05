@@ -1,6 +1,6 @@
 <div class="flex justify-center">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <!--<a [routerLink]="['/specificrecipe', specificrecipe.id]">--><div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+    <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
       <div class="p-4"> <!--Inside a tag around that redirects /recipe/id (id is a url parameter)
         in that route display more info, new comp that make a api request to get more info and display that
       in the recipe service make a request for the recipe by id -->
@@ -12,6 +12,6 @@
         <!--<p class="mb-2"><span class="font-semibold">Allergens:</span> {{ recipe.allergenes }}</p>-->
         <img src="{{ recipe.image }}" alt="image of the recipe">
       </div>
-    </div><!--</a>-->
+    </div>
   </div>
 </div>

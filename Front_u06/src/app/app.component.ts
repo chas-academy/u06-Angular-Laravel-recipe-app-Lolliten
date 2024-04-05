@@ -36,7 +36,8 @@ export class AppComponent {
     title: 'pasta',
     //nutrition: 'fat',
     //allergenes: 'egg',
-    image: 'test'
+    image: 'test',
+    self: 'test'
   }
 
   loggedIn$: Observable<boolean>; 

@@ -30,8 +30,8 @@ export class RecipeService {
   This line defines a public method named that takes parameter id. 
   The return type of this method is an Observable that emits values of type any.*/
   public getRecipeId(id: string): Observable<any> { 
-    let url = `${this.baseUrl2}${id}/information`; //Constructs the URL for the HTTP request. It's using string interpolation
-    return this.http.get(url, this.httpOptions); //Sends HTTP request to the URL using HttpClient service, it returns an Observable that will emit the HTTP response.
+    let url = `${this.baseUrl2}${id}/information?apiKey=${this.app_key}`; //Constructs the URL for the HTTP request. It's using string interpolation
+    return this.http.get<any>(url, this.httpOptions); //Sends HTTP request to the URL using HttpClient service, it returns an Observable that will emit the HTTP response.
     //this.http.get(this.baseUrl + "?number=1&apiKey=" + this.app_key, this.httpOptions)// ??
   } 
 

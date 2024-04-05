@@ -11,7 +11,7 @@ export const routes: Routes = [
       { path: "", component: HomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path:'recipe/:id', component: SpecificrecipeComponent},
+      { path:'specificrecipe/:id', component: SpecificrecipeComponent},
      
        // { path: '**', redirectTo: '' }, //redirects unknown routes to main
       //{ path: 'recipeinfo', component: RecipeinfoComponent}, //is this right??
