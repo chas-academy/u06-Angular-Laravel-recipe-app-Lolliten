@@ -1,7 +1,7 @@
 export interface Reciperesponse {
     label: string,
     image: string,
-    ingredientLines: string,
+    ingredientLines: any[],
     totalTime: number,
     yield: number,
     dietLabels: string,

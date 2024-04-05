@@ -15,10 +15,8 @@ import { FormatterPipe } from '../Pipes/formatter.pipe';
 export class RecipeinfoComponent {
 
   @Input() recipe: Recipeinfo={
-    id: 2,
+    id: 0,
     title: "",
-   // nutrition: "",
-   //allergenes: "",
     image: "",
     self: ""
   };

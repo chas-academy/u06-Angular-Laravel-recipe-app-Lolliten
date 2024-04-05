@@ -15,8 +15,8 @@ import { FormatterPipe } from '../Pipes/formatter.pipe';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
 
+export class HomeComponent {
   
   filter: Filter ={
     query: "",
@@ -27,21 +27,7 @@ export class HomeComponent {
 
   recipes?: Recipeinfo[]; //undefined
 
-  //Delete this?
-  //recipes?: Recipe;
-
-  searchterm = "chicken"; //ta bort
-
-  constructor(private recipeService: RecipeService) { 
-    /*this.recipes = [
-      {
-        id: -1,
-        title: "",
-        image: "",
-        //nutrition: 
-      }
-    ]*/
-  }
+  constructor(private recipeService: RecipeService) { }
 
   onSubmit() {
     console.log(this.filter);
@@ -57,7 +43,6 @@ export class HomeComponent {
        }
      })
      this.recipes = datarecipes;
-
    })  
  }
   

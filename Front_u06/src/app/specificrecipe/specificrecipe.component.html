@@ -1,5 +1,19 @@
-<p>specificrecipe works!</p>
 
-
+<div>
   {{ recipe.label }}
 
+ @for(ingredients of recipe.ingredientLines; track ingredients){
+  {{ ingredients.name }} <!--In this the ingredients has inside it the object and you are calling the name key with ".name"-->
+ }
+
+ {{ recipe.totalTime }}
+ {{ recipe.yield }}
+ {{ recipe.dietLabels }}
+ {{ recipe.cautions }}
+ {{ recipe.cuisineType }}
+ {{ recipe.mealType }}
+ {{ recipe.dishType }}
+ {{ recipe.instructions }}
+ {{ recipe.tags }}
+ {{ recipe.self }}
+</div>
