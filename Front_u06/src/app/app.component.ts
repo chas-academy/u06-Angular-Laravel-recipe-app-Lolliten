@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-//import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
@@ -15,11 +15,11 @@ import { AsyncPipe } from '@angular/common';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [AsyncPipe, RouterOutlet, RegisterComponent, LoginComponent, RouterLinkActive, RouterLink, FormsModule, RecipeinfoComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [AsyncPipe, RouterOutlet, RegisterComponent, LoginComponent, RouterLinkActive, RouterLink, FormsModule, RecipeinfoComponent, HomeComponent]
 })
 
 export class AppComponent {
@@ -36,7 +36,8 @@ export class AppComponent {
     title: 'pasta',
     //nutrition: 'fat',
     //allergenes: 'egg',
-    image: 'test'
+    image: 'test',
+    self: 'test'
   }
 
   loggedIn$: Observable<boolean>; 

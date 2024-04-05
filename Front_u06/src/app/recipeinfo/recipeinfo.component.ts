@@ -1,10 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Recipeinfo } from '../Interfaces/recipeinfo';
+import { RouterLink } from '@angular/router';
+import { SpecificrecipeComponent } from '../specificrecipe/specificrecipe.component';
+import { FormatterPipe } from '../Pipes/formatter.pipe';
+
 
 @Component({
   selector: 'app-recipeinfo',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, SpecificrecipeComponent, FormatterPipe],
   templateUrl: './recipeinfo.component.html',
   styleUrl: './recipeinfo.component.scss'
 })
@@ -15,38 +19,10 @@ export class RecipeinfoComponent {
     title: "",
    // nutrition: "",
    //allergenes: "",
-    image: ""
+    image: "",
+    self: ""
   };
 
-  /*
-  ?? in right component ??
-
-  import { RecipeService }
-
-  recipeId: string | null | undefined;
-
-  getRecipe: any;
-
-  recipe: any;
-
-    //insert init funtion in html
-   ngOnInit() { }
-   //this.recipe.Id here?
-
-    fetchRecipeData() {
-    if (!this.recipeId) {
-      return;
-    }
-
-    this.recipeService.getRecipeById(this.recipeId).subscribe((result: any) => {
-      this.getRecipes = result;
-
-    //recipeInfo eller recipeDetails, reffering to the component?
-    let recipeInfo = Object.values(this.getRecipes).map((res: any) => res)
-    this.recipe = recipeInfo[0];
-
-    ??
-
-  */
+  /* */
 
 }

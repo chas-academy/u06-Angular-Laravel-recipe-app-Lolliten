@@ -73,6 +73,9 @@
   <div class="items-center p-12">
   <div class="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"> 
     @for (recipetest of recipes; track recipetest) { 
+      <!--<a [routerLink]="['/specificrecipe', recipes.self | formatter]">-->
+        <a routerLink='/specificrecipe/{{recipetest.id}}'>
         <app-recipeinfo [recipe]="recipetest" class="padding: 10px rounded-lg"></app-recipeinfo> 
+      </a>
         } </div>
         </div>

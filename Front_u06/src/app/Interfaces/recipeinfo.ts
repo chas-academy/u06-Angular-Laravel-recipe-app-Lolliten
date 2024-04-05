@@ -4,4 +4,5 @@ export interface Recipeinfo {
     //nutrition: string;
     //allergenes: string;
     image: string;
+    self: string;
 }
