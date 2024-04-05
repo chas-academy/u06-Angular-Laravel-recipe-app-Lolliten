@@ -64,18 +64,17 @@
       </form>
     </div>
   </section>
-  
-  <!--<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto my-4">
-  @for (recipetest of recipes; track recipetest) {
-    <app-recipeinfo [recipe]="recipetest"></app-recipeinfo>
-  }</div>-->
 
-  <div class="items-center p-12">
-  <div class="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"> 
+<div class="flex justify-center">
+  <div class="grid grid-cols-4 gap-2">
+    <!-- Adjust grid-cols-3 to the number of columns you desire -->
+    <!-- Adjust gap-4 to change the spacing between the cards -->
     @for (recipetest of recipes; track recipetest) { 
-      <!--<a [routerLink]="['/specificrecipe', recipes.self | formatter]">-->
         <a routerLink='/specificrecipe/{{recipetest.id}}'>
-        <app-recipeinfo [recipe]="recipetest" class="padding: 10px rounded-lg"></app-recipeinfo> 
-      </a>
-        } </div>
-        </div>
+        <app-recipeinfo [recipe]="recipetest" class="rounded-lg"></app-recipeinfo> 
+        </a>
+        } 
+    </div>
+  </div>
+        
+        

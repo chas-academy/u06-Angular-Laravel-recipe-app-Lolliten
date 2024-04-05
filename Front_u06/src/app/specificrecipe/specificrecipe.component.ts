@@ -11,6 +11,7 @@ import { Reciperesponse } from '../Interfaces/reciperesponse';
   templateUrl: './specificrecipe.component.html',
   styleUrl: './specificrecipe.component.css'
 })
+
 export class SpecificrecipeComponent implements OnInit {
 
 
@@ -24,7 +25,7 @@ export class SpecificrecipeComponent implements OnInit {
     this.recipe={
       label: "",
       image: "",
-      ingredientLines: "",
+      ingredientLines: [],
       totalTime: 0,
       yield: 0,
       dietLabels: "",
@@ -38,26 +39,29 @@ export class SpecificrecipeComponent implements OnInit {
     }
   }//initial the data type (empty data)
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = String(params.get("id"));
-      if(this.id) {
+  ngOnInit(): void { //ngOnInit is a lifecycle hook
+    //paramMap is an Observable that contains a map of the route parameters extracted from the URL.
+    //This line subscribes to changes in the route parameters using the ActivatedRoute service.
+    this.route.paramMap.subscribe((params: ParamMap) => { 
+      this.id = String(params.get("id")); //This line retrieves the value of the route parameter with the key "id". 
+      if(this.id) { //This condition checks if the id property has a truthy value.
         console.log(this.id);
-        this.showRecipe(this.id);
+        this.showRecipe(this.id); //This line calls the showRecipe() method, passing the id as an argument. 
       }
     })
   }
 
+  //responsible for fetching a specific recipe from the recipeService based on the provided id.
   showRecipe(id: string) {
-    console.log("Show specific recipe")
+    //This subscribes to the Observable returned by the getRecipeId method.
     this.recipeService.getRecipeId(id).subscribe({
-      next: (data) =>{
-        console.log("Getted data", data);
+      next: (data) =>{ //Callback function that handles successful response from getRecipeId Observable. It receives the fetched data as an argument (data).
+        console.log("Getted data", data); //TA BORT
           let recipe: Reciperesponse = {
-    label: data.label,
+    label: data.title,
     image: data.image,
-    ingredientLines: data.ingredientLines,
-    totalTime: data.totalTime,
+    ingredientLines: data.extendedIngredients,
+    totalTime: data.cookingMinutes,
     yield: data.yield,
     dietLabels: data.dietLabels,
     cautions: data.cautions,

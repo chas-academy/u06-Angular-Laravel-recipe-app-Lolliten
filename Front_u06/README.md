@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+### Own reflections
+
+This is my u06, if I had more time I would have fixed a MyList with recipes that is saved on your user. 
+I would have had a profile,
+and display a random recipe when you visit the page. 
+Better design and some other things.
+
+I would have done the file structure better by adding a folder named Pages and put all my components in there.
