@@ -28,7 +28,7 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   loggedIn$ = this.loggedIn.asObservable();
 
-  private baseUrl = 'http://127.0.0.1:8000/api/';
+  private baseUrl = 'https://u06-angular-laravel-recipe-app-lolliten.onrender.com//api/';
 
   private httpOptions = {
     headers: new HttpHeaders({
