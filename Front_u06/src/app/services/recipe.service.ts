@@ -12,10 +12,10 @@ export class RecipeService {
 
   private baseUrl = "https://api.spoonacular.com/recipes/complexSearch"
   private baseUrl2 = "https://api.spoonacular.com/recipes/" //for the specificrecipe
-  private app_key = "943aa41b59554c0fbd87e17126a3fe82"
+  private app_key = "943aa41b59554c0fbd87e17126a3fe82" 
 
 
-  private httpOptions = {
+  private httpOptions = { //A variable name used to store the options for an HTTP request.
     headers: new HttpHeaders({
       'accept': 'application/json',
       'Accept-Language': 'en'
