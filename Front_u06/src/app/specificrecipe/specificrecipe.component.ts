@@ -30,9 +30,9 @@ export class SpecificrecipeComponent implements OnInit {
       yield: 0,
       dietLabels: "",
       cautions: "",
-      cuisineType: "",
+      cuisines: [],
       mealType: "",
-      dishType: "",
+      dishTypes: "",
       instructions: "",
       tags: "",
       self: "",
@@ -65,9 +65,9 @@ export class SpecificrecipeComponent implements OnInit {
     yield: data.yield,
     dietLabels: data.dietLabels,
     cautions: data.cautions,
-    cuisineType: data.cuisineType,
+    cuisines: data.cuisines,
     mealType: data.mealType,
-    dishType: data.dishType,
+    dishTypes: data.dishTypes,
     instructions: data.instructions,
     tags: data.tags,
     self: data.self,
@@ -79,21 +79,4 @@ export class SpecificrecipeComponent implements OnInit {
       }
     })
   }
-
-  //this displays the specific recipe info
-  /*let recipe: RecipeResponse = {
-    label: res.recipe.label,
-    image: res.recipe.image,
-    ingredientLines: res.recipe.ingredientLines,
-    totalTime: res.recipe.totalTime,
-    yield: res.recipe.yield,
-    dietLabels: res.recipe.dietLabels,
-    cautions: res.recipe.cautions,
-    cuisineType: res.recipe.cuisineType,
-    mealType: res.recipe.mealType,
-    dishType: res.recipe.dishType,
-    instructions: res.recipe.instructions,
-    tags: res.recipe.tags,
-    self: res?.self,
-  };*/
 }

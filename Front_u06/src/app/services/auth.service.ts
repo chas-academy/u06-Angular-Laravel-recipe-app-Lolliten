@@ -25,12 +25,12 @@ interface RegisterDetails {
 
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<boolean>(false);
-  loggedIn$ = this.loggedIn.asObservable();
+  private loggedIn = new BehaviorSubject<boolean>(false); //Initializes the variable with a new instance of BehaviorSubject, that is a type of Observable provided by RxJS. 
+  loggedIn$ = this.loggedIn.asObservable(); //It has a value it emits its to new subscribers. 
 
-  private baseUrl = 'https://u06-angular-laravel-recipe-app-lolliten.onrender.com//api/';
+  private baseUrl = 'https://u06-angular-laravel-recipe-app-lolliten.onrender.com/api/';
 
-  private httpOptions = {
+  private httpOptions = { //A variable name used to store the options for an HTTP request.
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
@@ -45,15 +45,20 @@ export class AuthService {
     this.loggedIn.next(loginState);
   }
 
-  //where is resultdata? Do i need to create IF?
   loginUser(loginDetails: LoginDetails){
-    this.http.post<any>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe(
+    //makes an HTTP POST request to the specified URL (this.baseUrl + 'login') with the provided loginDetails data as the request body.
+    this.http.post<any>(this.baseUrl+'login', loginDetails, this.httpOptions).pipe( //Pipi allows to chain RxJS operators to operate on the observable stream returned by the post method.
+
       catchError(this.handleError)).subscribe(result => {
         console.log(result);
+        //subscribes to the observable returned by the post method. When the HTTP request is successful, it logs the result to the console. 
+        //The result variable holds the response data returned by the server.
         
-        this.updateLoginState(true);
+        this.updateLoginState(true); //Updates application's state that user is logged in.
+        //Updates the Authorization header in the httpOptions object and sets the Authorization header to contain a token from the result object. 
+        //The token is prefixed with "Bearer "
         this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + result.token);
-        this.router.navigate(['/'])
+        this.router.navigate(['/']) //Navigates user to the specified route, which is the root route 
       })
   }
 
