@@ -29,7 +29,7 @@ import { FormsModule } from '@angular/forms';
       }
 
       this.user = {
-        id: -1,
+        id: 0,
         name: "",
         email: "",
         created_at: ""

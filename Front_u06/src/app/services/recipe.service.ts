@@ -35,9 +35,9 @@ export class RecipeService {
 
 
 public getRecipes(filter: Filter): Observable<any> { /*This line defines a public method named that takes parameter id. 
-                                                        The return type of this method is an Observable that emits values of type any.*/
+                                                      The return type of this method is an Observable that emits values of type any.*/
 console.log(filter)
-let url = this.baseUrl + "?apiKey=" + this.app_key + "&number=5";
+let url = this.baseUrl + "?apiKey=" + this.app_key + "&number=30"; //Display 30 recipe in a search
 if(filter.query) {
   url += "&query=" + filter.query;
 }

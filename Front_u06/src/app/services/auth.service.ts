@@ -6,18 +6,18 @@ import { LoginDetails } from '../Interfaces/logindetails';
 import { Registerdetails } from '../Interfaces/registerdetails';
 import { Router } from '@angular/router'; //?
 
-//TAKE THIS AWAY??
-interface ResultData {
+
+/*interface ResultData {
   token: string
-}
+}*/
 
 //Do I need this? Login dont have the interface?
-interface RegisterDetails {
+/*interface RegisterDetails {
   name: "",
     email: "",
     password: "",
     passwordConfirmation: ""
-}
+}*/
 
 @Injectable({
   providedIn: 'root'
@@ -38,10 +38,14 @@ export class AuthService {
 
   constructor(private http:HttpClient, private router: Router) { }
 
+    //When called for it returns the current login status stored in the loggedIn BehaviorSubject.
   getLoginStatus(){
+    //Returns the current login status of the user. It retrieves the value from the loggedIn BehaviorSubject using the value property.
     return this.loggedIn.value;
   }
+  
   private updateLoginState(loginState: boolean) {
+    //Calls the next() method on the loggedIn BehaviorSubject and passes the loginState parameter to update its value.
     this.loggedIn.next(loginState);
   }
 
@@ -63,33 +67,35 @@ export class AuthService {
   }
 
   register(form: any) {
-    this.http.post<any>(this.baseUrl + 'register', form, this.httpOptions).pipe(
+    //Sends an HTTP POST request to the specified URL
+    this.http.post<any>(this.baseUrl + 'register', form, this.httpOptions).pipe( //Uses the pipe operator to chain RxJS operators, the catchError.
       catchError(this.handleError)
+      //Subscribes to the observable returned by the post method. When the HTTP request is successful, it receives the response data (result) from the server.
     ).subscribe(res => {
-      console.log(res);
-      console.log(res.token);
+      console.log(res); //Log the response data. 
+      console.log(res.token); //Logs the response data and the token.
       this.updateLoginState(true)
-      this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + res.token); // + result.token //should this line be here?
+      //Updates the Authorization header in the httpOptions object with the authentication token received in the response (res.token).
+      this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + res.token);
       
-      this.router.navigate(['/']);
+      this.router.navigate(['/']); //Navigates user to the specified route, which is the root route 
     });
   }
 
   logOut(){
     this.http.post<any>(this.baseUrl+'logout', {}, this.httpOptions).pipe(
       catchError(this.handleError)).subscribe(result => {
-        console.log(result);
+        console.log(result); //Logs the response data to the console for debugging purposes.
         this.updateLoginState(false);
-        this.httpOptions.headers = this.httpOptions.headers.delete('Authorization'); //
+        //removes the Authorization header from the httpOptions object
+        this.httpOptions.headers = this.httpOptions.headers.delete('Authorization');
       })
   }
-  //connect button to log out 
-  //create new button for logout 
-  //manipulate login to be logout when logged in
-
-  getUser2(): Observable<User[]> {
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); // + token??
-    return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions);
+    //Returns an observable of type Observable<User[]>.
+    //Whoever calls this function can subscribe to the returned observable to receive a stream of User[] data.
+  getUser2(): Observable<User[]> { 
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer "); //Sets the Authorization header in the httpOptions object to an empty string or space.
+    return this.http.get<User[]>(this.baseUrl+'getuser/2', this.httpOptions); //Fetch user data for the user with ID 2
   }
 
   private handleError(error: HttpErrorResponse){
