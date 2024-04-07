@@ -55,7 +55,9 @@ export class SpecificrecipeComponent implements OnInit {
   showRecipe(id: string) {
     //This subscribes to the Observable returned by the getRecipeId method.
     this.recipeService.getRecipeId(id).subscribe({
-      next: (data) =>{ //Callback function that handles successful response from getRecipeId Observable. It receives the fetched data as an argument (data).
+      //Callback function that handles successful response from getRecipeId Observable.
+      //It receives the fetched data as an argument (data).
+      next: (data) =>{  
         console.log("Getted data", data); //TA BORT
           let recipe: Reciperesponse = {
     label: data.title,
