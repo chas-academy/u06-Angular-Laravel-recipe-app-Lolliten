@@ -16,7 +16,7 @@
           <select
             name="mealtype"
             [(ngModel)]="filter.mealtype"
-            class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+            class="bg-gray-400 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
             <option value="">Mealtype</option>
             <option value="breakfast">Breakfast</option>
             <option value="brunch">Brunch</option>
@@ -29,7 +29,7 @@
           <select
             name="diet"
             [(ngModel)]="filter.diet"
-            class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+            class="bg-gray-400 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
             <option value="">Diet</option>
             <option value="vegetarian">Vegetarin</option>
             <option value="lacto-vegetarian">Lacto-Vegetarian</option>
@@ -41,7 +41,7 @@
           <select
             name="Intolerances"
             [(ngModel)]="filter.intolerances"
-            class="bg-gray-500 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
+            class="bg-gray-400 text-white px-3 py-2 rounded-md mb-2 sm:mr-2 sm:mb-0 focus:outline-none focus:ring focus:border-blue-300">
             <option value="">Intolerances</option>
             <option value="dairy">Dairy</option>
             <option value="egg">Egg</option>
@@ -58,23 +58,21 @@
         </div>
         <button
           type="button" (click)="onSubmit()"
-          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+          class="bg-green-800 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
           Search
         </button>
       </form>
     </div>
   </section>
 
-<div class="flex justify-center">
-  <div class="grid grid-cols-4 gap-2">
-    <!-- Adjust grid-cols-3 to the number of columns you desire -->
-    <!-- Adjust gap-4 to change the spacing between the cards -->
+  <div class="flex justify-center flex-wrap">
+   
     @for (recipetest of recipes; track recipetest) { 
         <a routerLink='/specificrecipe/{{recipetest.id}}'>
         <app-recipeinfo [recipe]="recipetest" class="rounded-lg"></app-recipeinfo> 
         </a>
         } 
     </div>
-  </div>
+  
         
         

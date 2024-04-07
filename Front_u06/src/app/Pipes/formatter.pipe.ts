@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+/*import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'formatter',
@@ -10,4 +10,4 @@ export class FormatterPipe implements PipeTransform {
     return value.replace("https://api.spoonacular.com/recipes/","").split("?")[0];
   }
 
-}
+}*/

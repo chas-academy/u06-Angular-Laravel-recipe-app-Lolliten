@@ -9,7 +9,7 @@ import { Reciperesponse } from '../Interfaces/reciperesponse';
   standalone: true,
   imports: [],
   templateUrl: './specificrecipe.component.html',
-  styleUrl: './specificrecipe.component.css'
+  styleUrl: './specificrecipe.component.css',
 })
 
 export class SpecificrecipeComponent implements OnInit {
@@ -26,16 +26,12 @@ export class SpecificrecipeComponent implements OnInit {
       label: "",
       image: "",
       ingredientLines: [],
-      totalTime: 0,
-      yield: 0,
-      dietLabels: "",
-      cautions: "",
-      cuisines: [],
-      mealType: "",
+      readyInMinutes: "",
+      diet: "",
+      excludeCuisine: "",
+      type: "",
       dishTypes: "",
       instructions: "",
-      tags: "",
-      self: "",
     }
   }//initial the data type (empty data)
 
@@ -55,22 +51,20 @@ export class SpecificrecipeComponent implements OnInit {
   showRecipe(id: string) {
     //This subscribes to the Observable returned by the getRecipeId method.
     this.recipeService.getRecipeId(id).subscribe({
-      next: (data) =>{ //Callback function that handles successful response from getRecipeId Observable. It receives the fetched data as an argument (data).
-        console.log("Getted data", data); //TA BORT
-          let recipe: Reciperesponse = {
+      //Callback function that handles successful response from getRecipeId Observable.
+      //It receives the fetched data as an argument (data).
+      next: (data) =>{  
+        console.log("Getted data", data);
+        let recipe: Reciperesponse = {
     label: data.title,
     image: data.image,
     ingredientLines: data.extendedIngredients,
-    totalTime: data.cookingMinutes,
-    yield: data.yield,
-    dietLabels: data.dietLabels,
-    cautions: data.cautions,
-    cuisines: data.cuisines,
-    mealType: data.mealType,
+    readyInMinutes: data.readyInMinutes,
+    diet: data.diet,
+    excludeCuisine: data.excludeCuisine,
+    type: data.mealType,
     dishTypes: data.dishTypes,
     instructions: data.instructions,
-    tags: data.tags,
-    self: data.self,
   };
         this.recipe = recipe;
       },
