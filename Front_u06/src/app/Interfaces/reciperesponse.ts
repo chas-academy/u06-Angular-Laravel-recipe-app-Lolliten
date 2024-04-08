@@ -3,9 +3,7 @@ export interface Reciperesponse {
     image: string,
     ingredientLines: any[],
     readyInMinutes: string,
-    diet: string,
-    excludeCuisine: string,
-    type: string,
+    diets: string,
     dishTypes: string,
     instructions: string,
   };

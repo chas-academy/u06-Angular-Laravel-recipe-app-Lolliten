@@ -27,9 +27,7 @@ export class SpecificrecipeComponent implements OnInit {
       image: "",
       ingredientLines: [],
       readyInMinutes: "",
-      diet: "",
-      excludeCuisine: "",
-      type: "",
+      diets: "",
       dishTypes: "",
       instructions: "",
     }
@@ -60,9 +58,7 @@ export class SpecificrecipeComponent implements OnInit {
     image: data.image,
     ingredientLines: data.extendedIngredients,
     readyInMinutes: data.readyInMinutes,
-    diet: data.diet,
-    excludeCuisine: data.excludeCuisine,
-    type: data.mealType,
+    diets: data.diets,
     dishTypes: data.dishTypes,
     instructions: data.instructions,
   };
